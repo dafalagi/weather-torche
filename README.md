@@ -2,23 +2,23 @@
 
 1. Clone repository
     ```sh
-    git clone https://github.com/dafalagi/Canopus.git
+    git clone https://github.com/dafalagi/weather-torche.git
     ```
-2. Masuk ke direktori Canopus
+2. Masuk ke direktori weather-torche
     ```sh
-    cd Canopus
+    cd weather-torche
     ``` 
 3. Install Laravel
     ```sh
     composer install
     ```
-4. Buat database dengan nama "canopus" pada server MySQL lokal anda.
+4. Buat database dengan nama "weather_torche" pada server MySQL lokal anda.
 5. Copy-paste file `.env.example` lalu ubah menjadi `.env` dan sesuaikan baris berikut :
     ```sh
        DB_CONNECTION=mysql
        DB_HOST=127.0.0.1
        DB_PORT=3306
-       DB_DATABASE=canopus
+       DB_DATABASE=weather_torche
        DB_USERNAME=root
        DB_PASSWORD=
     ```
