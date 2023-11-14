@@ -35,7 +35,7 @@ class WeatherSeeder extends Seeder
                         'city_id' => $i,
                         'month' => $month,
                         'day' => $k,
-                        'condition' => collect(['sunny', 'cloudy', 'rainy', 'windy'])->random(),
+                        'condition' => collect(['Sunny', 'Cloudy', 'Rainy', 'Windy'])->random(),
                     ]);
                 }
             }

@@ -29,9 +29,19 @@ class WeatherController extends BaseController
     {
         $validated = $request->validated();
 
-        $weather = Weather::create($validated);
+        $weather = Weather::where([
+            'city_id' => $validated['city_id'],
+            'month' => $validated['month'],
+            'day' => $validated['day'],
+        ])->first();
 
-        return $this->sendResponse($weather, 'Weather created successfully.');
+        if ($weather) {
+            return $this->sendError('Weather already exists.', 500);
+        }
+
+        $store = Weather::create($validated);
+
+        return $this->sendResponse($store, 'Weather created successfully.');
     }
 
     /**
@@ -48,6 +58,17 @@ class WeatherController extends BaseController
     public function update(UpdateWeatherRequest $request, Weather $weather)
     {
         $validated = $request->validated();
+
+        $exist = Weather::where([
+            'city_id' => $validated['city_id'],
+            'month' => $validated['month'],
+            'day' => $validated['day'],
+            'condition' => $validated['condition'],
+        ])->first();
+
+        if ($exist) {
+            return $this->sendError('Weather already exists.', 500);
+        }
 
         $weather->update($validated);
 
