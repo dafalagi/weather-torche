@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\Condition;
 use App\Enums\Month;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -13,6 +14,7 @@ class Weather extends Model
     protected $guarded = ['id'];
     protected $casts = [
         'month' => Month::class,
+        'condition' => Condition::class,
     ];
 
     public function scopeFilter($query, array $filters)

@@ -39,6 +39,24 @@ class weatherTest extends TestCase
         $responseFalse->assertStatus(404);
     }
 
+    public function testCityMonthSearch(): void
+    {
+        $responseTrue = $this->get('/api/weathers?city=Malang&month=January');
+        $responseFalse = $this->get('/api/weathers?city=Sidney&month=February');
+
+        $responseTrue->assertStatus(200);
+        $responseFalse->assertStatus(404);
+    }
+
+    public function testCityConditionSearch(): void
+    {
+        $responseTrue = $this->get('/api/weathers?city=Malang&condition=Rainy');
+        $responseFalse = $this->get('/api/weathers?city=Sidney&condition=Snowy');
+
+        $responseTrue->assertStatus(200);
+        $responseFalse->assertStatus(404);
+    }
+
     public function testAddWeather(): void
     {
         $responseTrue = $this->post('/api/weathers', [

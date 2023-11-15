@@ -32,7 +32,7 @@ class cityTest extends TestCase
         ]);
 
         $responseTrue->assertStatus(200);
-        $responseFalse->assertStatus(500);
+        $responseFalse->assertStatus(302);
     }
 
     public function testUpdateCity(): void
@@ -48,7 +48,7 @@ class cityTest extends TestCase
         ]);
 
         $responseTrue->assertStatus(200);
-        $responseFalse->assertStatus(500);
+        $responseFalse->assertStatus(302);
         $responseNotFound->assertStatus(404);
     }
 
